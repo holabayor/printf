@@ -9,11 +9,10 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
+	char ch;
+	int i = 0;
 
 	va_start(list, format);
-	int i = 0;
-	char ch;
-
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -28,7 +27,9 @@ int _printf(const char *format, ...)
 				case 's':
 					{char *s = va_arg(list, char *);
 					while (*s)
+					{
 						_putchar(*s++);
+					}
 						break;
 					}
 				case '%':
